@@ -1,0 +1,25 @@
+[package]
+name = "synchole-sync"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Offline-first synchronization protocol and conflict resolution."
+
+[dependencies]
+async-trait.workspace = true
+bytes.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+synchole-core = { path = "../synchole-core" }
+synchole-discovery = { path = "../synchole-discovery" }
+synchole-identity = { path = "../synchole-identity" }
+synchole-storage = { path = "../synchole-storage", default-features = false }
+synchole-transport = { path = "../synchole-transport" }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt"] }
+
+[lints]
+workspace = true

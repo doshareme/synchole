@@ -1,0 +1,19 @@
+[package]
+name = "synchole-identity"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Device identity and trust policy contracts for Synchole."
+
+[dependencies]
+async-trait.workspace = true
+blake3.workspace = true
+serde = { workspace = true, features = ["derive"] }
+synchole-core = { path = "../synchole-core" }
+thiserror.workspace = true
+zeroize = { workspace = true, features = ["derive"] }
+
+[lints]
+workspace = true

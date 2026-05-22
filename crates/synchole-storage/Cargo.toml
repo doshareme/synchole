@@ -1,0 +1,32 @@
+[package]
+name = "synchole-storage"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "SQLite-backed storage abstraction for Synchole sync modes."
+
+[features]
+default = ["native-sqlite"]
+native-sqlite = ["dep:rusqlite"]
+wasm-sqlite = []
+binary-codec = ["dep:bincode", "dep:postcard", "dep:rkyv"]
+
+[dependencies]
+async-trait.workspace = true
+bincode = { workspace = true, optional = true }
+postcard = { workspace = true, optional = true }
+rkyv = { workspace = true, optional = true }
+rusqlite = { workspace = true, optional = true, features = ["bundled", "serde_json"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+synchole-core = { path = "../synchole-core" }
+thiserror.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+tokio = { workspace = true, features = ["macros", "rt"] }
+
+[lints]
+workspace = true

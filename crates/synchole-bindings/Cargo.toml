@@ -1,0 +1,28 @@
+[package]
+name = "synchole-bindings"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Platform binding surfaces for Synchole."
+
+[lib]
+crate-type = ["rlib", "cdylib", "staticlib"]
+
+[features]
+default = []
+android = ["dep:jni"]
+apple = ["dep:uniffi"]
+c-abi = ["dep:libc"]
+wasm = ["dep:wasm-bindgen", "dep:wasm-bindgen-futures", "dep:serde-wasm-bindgen"]
+
+[dependencies]
+jni = { workspace = true, optional = true }
+libc = { workspace = true, optional = true }
+serde = { workspace = true, features = ["derive"] }
+serde-wasm-bindgen = { workspace = true, optional = true }
+synchole = { path = "../synchole", default-features = false }
+uniffi = { workspace = true, optional = true }
+wasm-bindgen = { workspace = true, optional = true }
+wasm-bindgen-futures = { workspace = true, optional = true }

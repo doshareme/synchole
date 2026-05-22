@@ -1,0 +1,18 @@
+[package]
+name = "synchole-transport"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Secure peer transport abstractions for Synchole."
+
+[dependencies]
+async-trait.workspace = true
+bytes = { workspace = true, features = ["serde"] }
+serde = { workspace = true, features = ["derive"] }
+synchole-core = { path = "../synchole-core" }
+synchole-discovery = { path = "../synchole-discovery" }
+
+[lints]
+workspace = true

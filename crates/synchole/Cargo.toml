@@ -1,0 +1,28 @@
+[package]
+name = "synchole"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Public SDK facade for Synchole."
+
+[features]
+default = ["native-sqlite"]
+native-sqlite = ["synchole-storage/native-sqlite"]
+wasm = ["synchole-storage/wasm-sqlite"]
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+synchole-core = { path = "../synchole-core" }
+synchole-discovery = { path = "../synchole-discovery" }
+synchole-identity = { path = "../synchole-identity" }
+synchole-nat = { path = "../synchole-nat" }
+synchole-relay = { path = "../synchole-relay" }
+synchole-storage = { path = "../synchole-storage", default-features = false }
+synchole-sync = { path = "../synchole-sync" }
+synchole-transport = { path = "../synchole-transport" }
+
+[lints]
+workspace = true
